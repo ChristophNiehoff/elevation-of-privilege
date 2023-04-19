@@ -1,19 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Deck from './deck';
-import { GameMode } from '../../../utils/constants';
+import { GameMode } from '../../../utils/GameMode';
+import { DEFAULT_START_SUIT } from '../../../utils/constants';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <Deck
-      suit=""
+      suit={DEFAULT_START_SUIT}
       cards={[]}
-      phase="play"
+      isInThreatStage={true}
       round={0}
       current={false}
       active={false}
-      onCardSelect={() => {}}
+      onCardSelect={() => {
+        /* do nothing */
+      }}
       startingCard="T3"
       gameMode={GameMode.EOP}
     />,
@@ -26,13 +29,15 @@ it('renders active card correctly', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <Deck
-      suit=""
+      suit={DEFAULT_START_SUIT}
       cards={['T3', 'S2']}
-      phase="play"
+      isInThreatStage={true}
       round={0}
       current={true}
       active={true}
-      onCardSelect={() => {}}
+      onCardSelect={() => {
+        /* do nothing */
+      }}
       startingCard="T3"
       gameMode={GameMode.EOP}
     />,
